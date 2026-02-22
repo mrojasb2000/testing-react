@@ -73,6 +73,7 @@ describe('calculator', () => {
             expect(user.name).toBeDefined();
         });
         it('should return true when property object is not defined', () => {
+            // @ts-ignore
             expect(user.age).not.toBeDefined();
         });
     });
