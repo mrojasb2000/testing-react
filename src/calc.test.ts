@@ -83,9 +83,9 @@ describe('calculator', () => {
         it('should return true when string contains substring', () => {
             expect(actual).toEqual(expected);
         });
-        it('should return true when users array contains username', () => {
+        it('should return true when array contains subset of elements', () => {
             const users = ["Juntao", "Abruzzi", "Alex"];
-            // custom matcher, check if array contains string
+            // custom matcher, check if array contains subset of elements
             const expected = expect.arrayContaining(["Juntao", "Abruzzi"]);
             expect(users).toEqual(expected);
         });
