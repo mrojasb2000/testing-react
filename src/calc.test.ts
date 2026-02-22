@@ -54,10 +54,26 @@ describe('calculator', () => {
         });
     });
     describe('matchers for arrays and objects', () => {
+        const user = {
+            name: "Juntao",
+            address: "Xian, Shaanxi, China",
+        };
+        const usersObj = [{ name: "Juntao"}, {name: "Abruzzi"}, {name: "Alex"}];
+        const users = ["Juntao", "Abruzzi", "Alex"];
+
         it('should return true when array contains string', () => {
-            const users = ["Juntao", "Abruzzi", "Alex"];
-            expect(users).toContainEqual('Juntao');
-            expect(users).toContain(users[1]);
+            expect(users).toContainEqual('Juntao'); // just check value '=='
+            expect(users).toContain(users[1]); // check value and reference '==='
+        });
+        it('should return true when object in array', () => {
+            expect(usersObj).toContainEqual({ name: "Juntao"}); // just check value '=='
+            // expect(usersObj).toContain({ name: "Juntao"}); // FAIL
+        });
+        it('should return true when property object is defined', () => {
+            expect(user.name).toBeDefined();
+        });
+        it('should return true when property object is not defined', () => {
+            expect(user.age).not.toBeDefined();
         });
     });
 });
