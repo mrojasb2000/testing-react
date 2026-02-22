@@ -76,12 +76,18 @@ describe('calculator', () => {
             expect(user.age).not.toBeDefined();
         });
     });
-    describe('matchers string contains', () => {
+    describe('custom matchers', () => {
         const actual = "Juntao Qiu";
         // custom matcher, check if string contains substring
         const expected = expect.stringContaining('Juntao');
         it('should return true when string contains substring', () => {
             expect(actual).toEqual(expected);
+        });
+        it('should return true when users array contains username', () => {
+            const users = ["Juntao", "Abruzzi", "Alex"];
+            // custom matcher, check if array contains string
+            const expected = expect.arrayContaining(["Juntao", "Abruzzi"]);
+            expect(users).toEqual(expected);
         });
     });
 });
