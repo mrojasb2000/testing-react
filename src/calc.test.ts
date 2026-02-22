@@ -90,4 +90,32 @@ describe('calculator', () => {
             expect(users).toEqual(expected);
         });
     });
+    describe('custom matchers complex data', () => {
+        interface User {
+            name: string;
+            address: string;
+            projects: Project[];
+        }
+        interface Project {
+            name: string;
+        }
+
+        const user: User = {
+            name: "Juntao Qiu",
+            address: "Xian, Shaanxi, China",
+            projects: [
+                { name: "ThoughtWorks University" },
+                { name: "ThoughtWorks Core Business Beach" },
+            ],
+        };
+        it('should return true when object contains custom property values', () => {
+           const matcher = expect.objectContaining({
+               name: expect.stringContaining('Juntao'),
+               projects:  expect.arrayContaining([
+                   { name: expect.stringContaining('ThoughtWorks') },
+               ]),
+           });
+           expect(user).toEqual(matcher);
+        });
+    });
 });
