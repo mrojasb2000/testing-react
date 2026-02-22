@@ -42,8 +42,12 @@ describe('jest matchers', () => {
         it('should return array with property name when jsonpath query get first project', () => {
             const actual = jsonpath.query(user, '$.projects[0].name');
             const expected: string[] = ['ThoughtWorks University'];
-            expect(actual.length).toBe(1);
             expect(actual).toEqual(expected);
+        });
+        it("should return empty array when jsonpath query didn't match anything", () => {
+            const actual = jsonpath.query(user, '$.projects[0].address');
+            const expected: number = 0;
+            expect(actual.length).toBe(expected);
         });
     });
 });
