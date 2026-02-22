@@ -38,10 +38,14 @@ describe('stub a remote service call',() =>{
        );
 
        // when
-       await fetchUser(111);
+       const actual: Response = await fetchUser(111);
 
        // then
        expect(global.fetch).toHaveBeenCalledWith('https://api.example.com/users/111');
        expect(global.fetch).toHaveBeenCalledTimes(1);
+       expect(actual.json()).not.toBeNull();
+       const data = await actual.json();
+       expect(data.user).toEqual(user);
+       expect(data.user?.name).toEqual('Juntao');
     });
 })
