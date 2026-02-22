@@ -43,4 +43,10 @@ describe('calculator', () => {
     it('should return true when 1 + 2 to be greater than or equal to 2', () => {
         expect(1 + 2).toBeGreaterThanOrEqual(2);
     });
+    it('should return true when 1 + 2 to be less than 4', () => {
+        expect(1 + 2).toBeLessThan(4);
+    });
+    it('should return true when 1 + 2 to be less than or equal to 4', () => {
+        expect(1 + 2).toBeLessThanOrEqual(4);
+    });
 });
