@@ -19,13 +19,11 @@
     "babel-jest": "^30.2.0",
     "babel-plugin-istanbul": "^5.0.0",
     "jest": "^30.2.0",
+    "jsonpath-plus": "^10.4.0",
     "minimatch": "^10.2.2",
     "test-exclude": "^7.0.1"
   },
   "overrides": {
     "minimatch": "^10.2.2"
-  },
-  "dependencies": {
-    "jsonpath": "^1.2.1"
   }
 }
