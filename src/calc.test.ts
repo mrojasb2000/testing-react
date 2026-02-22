@@ -37,4 +37,10 @@ describe('calculator', () => {
     it('should return false when number not match with patterns', () => {
         expect("1853-3345-3343").not.toMatch(/^\d{3}-\d{4}-\d{4}$/);
     });
+    it('should return true when 1 + 2 to be greater than 2', () => {
+        expect(1 + 2).toBeGreaterThan(2);
+    });
+    it('should return true when 1 + 2 to be greater than or equal to 2', () => {
+        expect(1 + 2).toBeGreaterThanOrEqual(2);
+    });
 });
