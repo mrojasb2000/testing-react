@@ -69,12 +69,20 @@ describe('jest matchers', () => {
                 },
             });
             describe('jsonpath', () => {
-                it('should return successfully when json contains username', () => {
+                it('should return successfully when json contains property username', () => {
                     const user = {
                         name: 'Juntao',
                     };
                     // @ts-ignore
                     expect(user).toMatchJsonPath('$.name');
+                });
+                it('should return error when json does not contain property age', () => {
+                    const user = {
+                        name: 'Juntao',
+                        address: 'Xian, Shaanxi, China',
+                    };
+                    // @ts-ignore
+                    expect(user).not.toMatchJsonPath('$.age');
                 });
             });
         });
